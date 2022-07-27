@@ -1,51 +1,35 @@
 <div class="row">
     <h1>Hard & Soft Skills</h1>
-    <div class="text center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress 
-        [percent]="85" [radius]="100" [imageSrc]="'../assets/HTML 5.png'" [showImage]="true"
-        [imageHeight]="70" [imageWidth]="70" [showUnits]="false" [showSubtitle]="false" [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
-        [animationDuration]="300">
-    </circle-progress>
+
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-outline-dark" routerLink="/nuevahys" *ngIf="isLogged">
+            Nueva Skill
+        </button>
     </div>
-    <div class="text center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress 
-        [percent]="80" [radius]="100" [imageSrc]="'../assets/CSS.png'" [showImage]="true"
-        [imageHeight]="70" [imageWidth]="70" [showUnits]="false" [showSubtitle]="false" [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
-        [animationDuration]="300">
-    </circle-progress>
-    </div>
-    <div class="text center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress 
-        [percent]="60" [radius]="100" [imageSrc]="'../assets/Java.png'" [showImage]="true"
-        [imageHeight]="70" [imageWidth]="70" [showUnits]="false" [showSubtitle]="false" [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
-        [animationDuration]="300">
-    </circle-progress>
-    </div>
-    <div class="text center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress 
-        [percent]="50" [radius]="100" [imageSrc]="'../assets/icono-github.png'" [showImage]="true"
-        [imageHeight]="70" [imageWidth]="70" [showUnits]="false" [showSubtitle]="false" [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
-        [animationDuration]="300">
-    </circle-progress>
-    </div>
-    <div class="text center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress 
-        [percent]="80" [radius]="100" [imageSrc]="'../assets/Ingles.png'" [showImage]="true"
-        [imageHeight]="70" [imageWidth]="70" [showUnits]="false" [showSubtitle]="false" [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
-        [animationDuration]="300">
-    </circle-progress>
-    </div>
-    <div class="text center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress 
-        [percent]="90" [radius]="100" [imageSrc]="'../assets/Ideas.jpg'" [showImage]="true"
-        [imageHeight]="70" [imageWidth]="70" [showUnits]="false" [showSubtitle]="false" [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
-        [animationDuration]="300">
-    </circle-progress>
+
+    <div class="col lg 1"></div>
+    <div class="col-lg-11">
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let HyS of HyS">
+                    <td>
+                        <circle-progress [percent]="parseInt(HyS.porcentajeHyS)" [radius]="100"
+                            [imageSrc]="HyS.imgHyS" [showImage]="true" [showTitle]="false" [title]="HyS.nombreHyS"
+                            [imageHeight]="70" [imageWidth]="70" [showUnits]="false" [showSubtitle]="false"
+                            [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'"
+                            [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300">
+                        </circle-progress>
+                    </td>
+                    <td><h3>{{HyS.nombreHyS + -HyS.porcentajeHyS}}%</h3></td>
+                    <td *ngIf="isLogged"><button class="btn btn-dark" routerLink="/edithys/{{HyS.id}}"><i
+                                class="bi bi-pencil-square"></i>EDITAR</button>
+                    </td>
+
+                    <td *ngIf="isLogged"><button class="btn btn-danger" (click)="delete(HyS.id)"><i
+                                class="bi bi-pencil-square"></i>BORRAR</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

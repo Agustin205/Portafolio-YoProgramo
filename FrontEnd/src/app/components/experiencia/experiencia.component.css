@@ -2,6 +2,10 @@
   padding: 20px;
 }
 
+.table{
+  text-align: center;
+}
+
 div{
     background-color: #a1b5cb;
 }
