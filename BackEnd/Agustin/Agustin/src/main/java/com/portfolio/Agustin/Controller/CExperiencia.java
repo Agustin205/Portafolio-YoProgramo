@@ -23,10 +23,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("explab")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="https://agustin-7979e.web.app/")
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
