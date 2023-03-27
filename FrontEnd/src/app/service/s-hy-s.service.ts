@@ -7,7 +7,7 @@ import { HyS } from '../Model/hy-s';
   providedIn: 'root'
 })
 export class SHySService {
-  HySURL= 'https://poagustin.herokuapp.com/HyS/'
+  HySURL= 'https://backendagustin-9qkv.onrender.com/HyS/'
 
   constructor(private httpClient: HttpClient) { }
 
